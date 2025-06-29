@@ -1,0 +1,20 @@
+{
+  "name": "food-ecommerce",
+  "version": "1.0.0",
+  "description": "Complete Food Ecommerce Website",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "setup": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": ["ecommerce", "food", "nextjs", "nodejs"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
