@@ -19,6 +19,16 @@ const nextConfig = {
       },
     ];
   },
+  // Enable standalone output for Docker
+  output: 'standalone',
+  // Experimental features for better Docker support
+  experimental: {
+    outputFileTracingRoot: process.cwd(),
+  },
+  // Environment variables
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000',
+  },
 }
 
 module.exports = nextConfig

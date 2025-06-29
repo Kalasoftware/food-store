@@ -6,6 +6,7 @@ A modern, full-stack food ecommerce website with dynamic QR code payments, live 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
 ![Node.js](https://img.shields.io/badge/Node.js-18+-green)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)
+![Docker](https://img.shields.io/badge/Docker-Supported-blue)
 
 ## ✨ Features
 
@@ -38,39 +39,41 @@ A modern, full-stack food ecommerce website with dynamic QR code payments, live 
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### 🐳 Option 1: Docker (Recommended)
+**No Node.js installation required!**
+
+```bash
+# Clone the repository
+git clone https://github.com/Kalasoftware/food-store.git
+cd food-store
+
+# Run with Docker (one command!)
+./docker_run.sh
+```
+
+**That's it!** The application will be available at:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:5000
+- Admin: http://localhost:3000/admin
+
+### 💻 Option 2: Local Development
+
+#### Prerequisites
 - Node.js (v18 or higher)
 - npm or yarn
 
-### Installation
+#### Installation
+```bash
+# Clone the repository
+git clone https://github.com/Kalasoftware/food-store.git
+cd food-store
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Kalasoftware/food-store.git
-   cd food-store
-   ```
+# Install dependencies
+./setup.sh
 
-2. **Install dependencies**
-   ```bash
-   npm run setup
-   ```
-
-3. **Configure environment**
-   ```bash
-   cd server
-   cp .env.example .env
-   # Update .env with your settings
-   ```
-
-4. **Start the application**
-   ```bash
-   npm run dev
-   ```
-
-5. **Access the application**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:5000
-   - Admin Panel: http://localhost:3000/admin
+# Start the application
+./start.sh
+```
 
 ## 🔑 Default Credentials
 
@@ -93,8 +96,42 @@ food-store/
 │   ├── middleware/       # Express middleware
 │   ├── routes/           # API routes
 │   └── uploads/          # File storage
-└── docs/                 # Documentation
+├── docker-compose.yml    # Docker configuration
+├── Dockerfile           # Docker image definition
+└── docker_run.sh        # Docker run script
 ```
+
+## 🐳 Docker Usage
+
+### Quick Commands
+```bash
+# Start the application
+./docker_run.sh start
+
+# Stop the application
+./docker_run.sh stop
+
+# View logs
+./docker_run.sh logs
+
+# Restart services
+./docker_run.sh restart
+
+# Clean up everything
+./docker_run.sh clean
+```
+
+### Manual Docker Commands
+```bash
+# Using Docker Compose
+docker-compose up -d
+
+# Using Docker directly
+docker build -t food-store .
+docker run -p 3000:3000 -p 5000:5000 food-store
+```
+
+For detailed Docker instructions, see [DOCKER_GUIDE.md](DOCKER_GUIDE.md)
 
 ## 🎯 Key Features Implemented
 
@@ -135,8 +172,15 @@ food-store/
 - **QRCode** - Dynamic QR code generation
 - **Bcrypt** - Password hashing
 
+### DevOps
+- **Docker** - Containerization
+- **Docker Compose** - Multi-container orchestration
+- **Health Checks** - Service monitoring
+- **Volume Mounts** - Data persistence
+
 ## 📚 Documentation
 
+- [Docker Guide](DOCKER_GUIDE.md) - Complete Docker setup and usage
 - [Complete Features List](COMPLETE_FEATURES_LIST.md)
 - [Live Quantity Calculation](LIVE_QUANTITY_CALCULATION.md)
 - [Categories Feature Guide](CATEGORIES_FEATURE_COMPLETE.md)
@@ -152,6 +196,7 @@ food-store/
 - Rate limiting and CORS protection
 - File upload restrictions
 - SQL injection prevention
+- Docker security best practices
 
 ## 🎨 UI/UX Highlights
 
@@ -161,22 +206,27 @@ food-store/
 - **Visual Feedback**: Loading states and progress indicators
 - **Accessibility**: ARIA labels and keyboard navigation support
 
-## 🚀 Deployment
+## 🚀 Deployment Options
 
-### Local Deployment
-The application is designed for easy local hosting:
+### 🐳 Docker Deployment (Recommended)
+- **Easy setup**: One command deployment
+- **Consistent environment**: Works the same everywhere
+- **Isolated**: No conflicts with system packages
+- **Scalable**: Easy to scale with Docker Compose
 
-1. Follow the installation steps above
-2. Configure environment variables
-3. Start with `npm run dev`
-4. Access via localhost
+### 💻 Local Deployment
+- **Direct control**: Full access to the system
+- **Development friendly**: Hot reload and debugging
+- **Performance**: No containerization overhead
+- **Customizable**: Easy to modify configurations
 
-### Production Considerations
+### ☁️ Production Considerations
 - Set strong JWT_SECRET
 - Configure proper CORS origins
 - Set up SSL/HTTPS
 - Configure file upload limits
 - Set up database backups
+- Use environment variables for secrets
 
 ## 🧪 Testing
 
@@ -208,6 +258,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Designed for local business use
 - Optimized for performance and user experience
 - Production-ready with comprehensive features
+- Docker support for easy deployment
 
 ## 📞 Support
 
@@ -215,9 +266,19 @@ For support and questions:
 - Create an issue in this repository
 - Check the documentation files
 - Review the troubleshooting guides
+- See [DOCKER_GUIDE.md](DOCKER_GUIDE.md) for Docker-specific help
 
 ---
 
 **Made with ❤️ for local food businesses**
 
 *Ready for production use with all essential ecommerce features!*
+
+### 🎯 Choose Your Setup Method:
+
+| Method | Best For | Setup Time | Requirements |
+|--------|----------|------------|--------------|
+| 🐳 **Docker** | Quick start, Production | 2 minutes | Docker only |
+| 💻 **Local** | Development, Customization | 5 minutes | Node.js 18+ |
+
+**Get started in under 2 minutes with Docker! 🚀**
